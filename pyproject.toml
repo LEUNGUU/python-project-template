@@ -1,0 +1,61 @@
+[project]
+name = "project_name"
+description = "project_description"
+authors = [{ name = "author_name", email = "liangy3928@gmail.com" }]
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+readme = "README.md"
+# keywords = ["CDK", "AWS", "Python", "Test", "Helper"]
+# dependencies = ["aws-cdk-lib>=2.1.0, <3.0.0", "constructs>=10.0.5, <11.0.0"]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+dynamic = ["version"]
+
+
+[project.urls]
+homepage = "https://github.com/author_name/project_urlname"
+repository = "https://github.com/author_name/project_urlname"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+black formatter
+/(
+    \.eggs
+  | \.env
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+addopts = "-vv -s"
+log_cli_level = "debug"
+markers = []
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = { attr = "project_name.__version__" }
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+version_files = ["pyproject.toml:version"]
+
