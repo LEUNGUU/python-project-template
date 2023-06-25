@@ -59,3 +59,20 @@ name = "cz_conventional_commits"
 version = "0.1.0"
 version_files = ["pyproject.toml:version"]
 
+[tool.pyright]
+include = ["project_name"]
+exclude = [
+  "**/node_modules",
+  "**/__pycache__",
+  ".env"
+]
+defineConstant = { DEBUG = true }
+stubPath = "src/stubs"
+venv = ".env"
+venvPath = "."
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+pythonVersion = "3.10"
+pythonPlatform = "Linux"
